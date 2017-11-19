@@ -81,7 +81,8 @@ body [v-cloak] {
   display: none;
 }
 #trainingContainer {
-  height: 100%;
+  height: 90%;
+  width: 100%;
 }
 #trainingContainer .full-height {
   height: 100%;
@@ -136,4 +137,25 @@ body [v-cloak] {
 }
 #trainingContainer .content h4 .action {
   float: right;
+}
+#trainingActions {
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #000100 !important;
+  color: #F8F8F8 !important;
+}
+#trainingActions a {
+  color: #F8F8F8 !important;
+  text-decoration: none !important;
+}
+#trainingActions a:hover,
+#trainingActions a:active,
+#trainingActions a:focus {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+#trainingActions .content {
+  vertical-align: middle;
 }

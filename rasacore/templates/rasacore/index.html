@@ -11,7 +11,7 @@
 <div class="container-fluid" id="trainingContainer" v-cloak>
     <div class="row full-height">
         <!-- Story list -->
-        <div class="col-md-2 full-height primary-bg">
+        <div class="col-md-2 full-height secondary-bg">
             <div class="content">
                 <section-header title="Stories" btnlabel="Add story" :btnaction="showAddStoryModal"></section-header>
                 <add-story :start.sync="show_add_story_modal" :stories.sync="stories" :story.sync="story"></add-story>
@@ -42,9 +42,22 @@
             <div class="content">
                 <section-header title="Bot responses and actions" btnlabel="Add action" :btnaction="showAddActionModal"></section-header>
                 <add-action :start.sync="show_add_action_modal" :actions.sync="actions" :intent="intent"></add-action>
-                <div class="accordion-list">
-                    <actions-list :intent="intent" :actions.sync="actions"></actions-list>
-                </div>
+                <actions-list :intent="intent" :actions.sync="actions"></actions-list>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="trainingActions">
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-4">
+                Header
+            </div>
+            <div class="col-md-4">
+                Actions
+            </div>
+            <div class="col-md-4 text-right">
+                Chat
             </div>
         </div>
     </div>
@@ -54,9 +67,11 @@
 
 {% block extra_scripts %}
 <script src="https://cdn.rawgit.com/wffranco/vue-strap/7becab2b/dist/vue-strap.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Add SortableJS and VueSortable-->
+<script src="https://unpkg.com/sortablejs@1.4.2"></script>
     
 <!-- Add app scripts -->
+<script src="{% static 'js/rasacore/directives.js' %}"></script>
 <script src="{% static 'js/rasacore/utilities.js' %}"></script>
 <script src="{% static 'js/rasacore/intent-actions.js' %}"></script>
 <script src="{% static 'js/rasacore/user-says.js' %}"></script>

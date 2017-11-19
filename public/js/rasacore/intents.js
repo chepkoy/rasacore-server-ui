@@ -48,7 +48,7 @@ Vue.component('intentsList', {
 var addIntentModalTemp = `
 <modal v-model="show_modal" @ok="saveForm" @cancel="cancelAction">
     <div slot="modal-header" class="modal-header">
-        <h4 class="modal-title">New Intent</h4>
+        <h4 class="modal-title">Add Intent</h4>
     </div>
     <div slot="modal-body" class="modal-body">
         <form>
@@ -105,7 +105,6 @@ Vue.component('addIntent', {
                 App.notifyUser(err.responseText, "error");
                 App.hideProcessing();
             });
-            
         },
         cancelAction: function() {
             this.show_modal = false;

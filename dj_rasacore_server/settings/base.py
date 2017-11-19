@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'nested_admin',
     'rest_framework',
     'django_filters',
+    'ordered_model',
 
     # Application level apps
     'rasacore',

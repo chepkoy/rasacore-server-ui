@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from solo.models import SingletonModel
+from ordered_model.models import OrderedModel
 from django.db.models.signals import post_save
 
 class Actions(models.Model):
@@ -70,12 +71,15 @@ class IntentUserSaysEntities(models.Model):
         verbose_name = 'User Says Entity'
         verbose_name_plural = 'User Says Entities'
 
-class IntentActions(models.Model):
+class IntentActions(OrderedModel):
     intent = models.ForeignKey(Intents, related_name='actions')
     action = models.ForeignKey(Actions, related_name='intent_actions')
 
     def __unicode__(self):
         return "%s (%s)" % (self.action, self.intent)
+
+    class Meta(OrderedModel.Meta):
+        pass
 
 class IntentActionsResponses(models.Model):
     intent_action = models.ForeignKey(IntentActions, related_name='responses')
