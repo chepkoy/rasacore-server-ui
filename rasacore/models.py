@@ -29,10 +29,14 @@ class Entities(models.Model):
 class Stories(models.Model):
     title = models.CharField(max_length=70)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     def __unicode__(self):
         return self.title
 
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'Story'
         verbose_name_plural = 'Stories'
 
@@ -40,10 +44,14 @@ class Intents(models.Model):
     name = models.SlugField(max_length=70, unique=True)
     story = models.ForeignKey(Stories, related_name="intents")
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     def __unicode__(self):
         return self.name
 
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'Intent'
         verbose_name_plural = 'Intents'
 
@@ -54,7 +62,11 @@ class IntentUserSays(models.Model):
     intent = models.ForeignKey(Intents, related_name='usersays')
     text = models.CharField(max_length=240)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'Intent User Say'
         verbose_name_plural = 'Intent User Says'
 
@@ -67,13 +79,20 @@ class IntentUserSaysEntities(models.Model):
     start = models.IntegerField(default=0, editable=False)
     end = models.IntegerField(default=0, editable=False)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'User Says Entity'
         verbose_name_plural = 'User Says Entities'
 
 class IntentActions(OrderedModel):
     intent = models.ForeignKey(Intents, related_name='actions')
     action = models.ForeignKey(Actions, related_name='intent_actions')
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def __unicode__(self):
         return "%s (%s)" % (self.action, self.intent)
@@ -85,10 +104,14 @@ class IntentActionsResponses(models.Model):
     intent_action = models.ForeignKey(IntentActions, related_name='responses')
     text = models.CharField(max_length=240)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     def __unicode__(self):
         return '%s response' % self.intent_action
 
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'Action response'
         verbose_name_plural = 'Action responses'
 
@@ -97,7 +120,11 @@ class ResponseButtons(models.Model):
     title =  models.CharField(max_length=20)
     payload =  models.CharField(max_length=20)
 
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+
     class Meta:
+        ordering = ('-created_at', )
         verbose_name = 'Button'
         verbose_name_plural = 'Buttons'
 
@@ -106,6 +133,9 @@ class Training(SingletonModel):
         ('spacy_sklearn', 'Spacy-Sklearn'), 
     )
     pipeline = models.CharField(max_length=70, choices=PIPELINE_CHOICES, default='spacy_sklearn')
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def __unicode__(self):
         return u"Training"

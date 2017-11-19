@@ -1,6 +1,7 @@
 #trainingContainer {
     height: 90%;
     width: 100%;
+    position: absolute;
     .full-height {
         height: 100%;
     }
@@ -37,13 +38,18 @@
     
 }
 
-#trainingActions {
+#trainingMainBar {
     height: 10%;
     width: 100%;
     position: fixed;
     bottom: 0;
     .primary-bg;
     .content {
-        vertical-align: middle;
+        padding: 21px 0;
+        .list-inline {
+            li {
+                padding: 0 21px;
+            }
+        }
     }
 }

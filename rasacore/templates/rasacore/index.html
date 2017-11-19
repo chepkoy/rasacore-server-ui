@@ -47,17 +47,38 @@
         </div>
     </div>
 </div>
-<div id="trainingActions">
+
+<!-- Menu bar for global actions -->
+<div id="trainingMainBar">
     <div class="container content">
         <div class="row">
             <div class="col-md-4">
-                Header
+                PesaBot - Rasacore Bot Training Engine
             </div>
             <div class="col-md-4">
-                Actions
+                <ul class="list-inline text-center">
+                    <li>
+                        <button class="btn btn-primary btn-sm" @click="doTraining()">
+                            <i class="fa fa-paper-plane"></i> Train Models</button>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-folder"></i> Intents</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-snowflake-o"></i> Actions</a>
+                    </li>
+                </ul>
             </div>
             <div class="col-md-4 text-right">
-                Chat
+                <ul class="list-inline">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-comment-o"></i> Test Chat
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -78,4 +99,5 @@
 <script src="{% static 'js/rasacore/intents.js' %}"></script>
 <script src="{% static 'js/rasacore/stories.js' %}"></script>
 <script src="{% static 'js/rasacore/training.js' %}"></script>
+<script src="{% static 'js/rasacore/mainbar.js' %}"></script>
 {% endblock %}

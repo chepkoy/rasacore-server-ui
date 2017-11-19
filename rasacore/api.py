@@ -2,6 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework import viewsets
 from rest_framework.response import Response
 
+from .tasks import do_training
+
 from .models import Actions, Entities, Intents, \
     IntentUserSays, IntentUserSaysEntities, Stories, \
     IntentActions, IntentActionsResponses, ResponseButtons, Training
@@ -30,7 +32,16 @@ class IntentActionsViewSet(viewsets.ModelViewSet):
     serializer_class = IntentActionsSer
     filter_fields = ['intent', ]
 
-
+@api_view(http_method_names=['post', ])
+def trainView(request):
+    """
+    Start training queue
+    """
+    try:
+        do_training.delay()
+        return Response({'status': 'success'})
+    except Exception as ex:
+        return Response({'status': 'error', 'detail': str(ex)}, 400)
 
 # from .chat import Chat
 # @api_view(http_method_names=['post', ])

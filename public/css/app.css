@@ -83,6 +83,7 @@ body [v-cloak] {
 #trainingContainer {
   height: 90%;
   width: 100%;
+  position: absolute;
 }
 #trainingContainer .full-height {
   height: 100%;
@@ -138,7 +139,7 @@ body [v-cloak] {
 #trainingContainer .content h4 .action {
   float: right;
 }
-#trainingActions {
+#trainingMainBar {
   height: 10%;
   width: 100%;
   position: fixed;
@@ -146,16 +147,19 @@ body [v-cloak] {
   background: #000100 !important;
   color: #F8F8F8 !important;
 }
-#trainingActions a {
+#trainingMainBar a {
   color: #F8F8F8 !important;
   text-decoration: none !important;
 }
-#trainingActions a:hover,
-#trainingActions a:active,
-#trainingActions a:focus {
+#trainingMainBar a:hover,
+#trainingMainBar a:active,
+#trainingMainBar a:focus {
   color: #ffffff !important;
   text-decoration: none !important;
 }
-#trainingActions .content {
-  vertical-align: middle;
+#trainingMainBar .content {
+  padding: 21px 0;
+}
+#trainingMainBar .content .list-inline li {
+  padding: 0 21px;
 }
