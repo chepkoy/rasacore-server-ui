@@ -13,9 +13,9 @@ var chatTemp = `
         <div class="divider"></div>
         <div class="action">
             <div class="send-action">
-                <div class="row">
+                <div class="row" v-if="next_action != 'action_listen'">
                     <div class="pull-left">
-                        Bot expected action <strong>utter_greetings</strong>
+                        Bot expected action <strong>{{next_action}}</strong>
                     </div>
                     <div class="pull-right">
                         <button class="btn btn-default" @click="sendBotResponse()">
@@ -23,18 +23,11 @@ var chatTemp = `
                         </button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="pull-left">
-                        <button class="btn btn-success" @click="startConversation()">
-                            Start
-                        </button>
-                    </div>
-                </div>
             </div>
             <div class="input-group send-text">
-                <input type="text" class="form-control" v-model="message" placeholder="User response"> 
+                <input type="text" class="form-control" v-bind:enabled="next_action == 'action_listen'" v-model="message" placeholder="User response"> 
                 <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button" @click="sendMessage()">Send</button>
+                    <button class="btn btn-primary" v-bind:enabled="next_action == 'action_listen'" type="button" @click="sendMessage()">Send</button>
                 </span>
             </div>
         </div>
@@ -47,7 +40,8 @@ Vue.component('chat', {
     data: function() {
         return {
             message: '',
-            response: ''
+            response: '',
+            next_action: 'action_listen'
         }
     },
     methods: {
@@ -57,13 +51,14 @@ Vue.component('chat', {
         sendBotResponse: function() {
             var self = this;
             var payload = {
-                'state': 'continue',
-                'executed_action': ''
+                'executed_action': self.next_action,
+                'events': []
             };
             App.showProcessing()
-            App.remotePost('/api/v1.0/chat/', payload, 
+            App.remotePost('http://127.0.0.1:5005/conversations/default/continue', payload, 
             function(res){
                 self.response = res;
+                self.next_action = res.next_action;
                 App.hideProcessing()
             }, function(err){
                 App.notifyUser(err, "error");
@@ -73,30 +68,14 @@ Vue.component('chat', {
         sendMessage: function() {
             var self = this;
             var payload = {
-                'state': 'parse',
-                'message': this.message
+                'query': this.message
             }
             App.showProcessing()
-            App.remotePost('/api/v1.0/chat/', payload, 
+            App.remoteGet('http://127.0.0.1:5005/conversations/default/parse?'+$.param(payload), {}, 
             function(res){
                 self.response = res;
-                App.hideProcessing()
-            }, function(err){
-                App.notifyUser(err, "error");
-                App.hideProcessing()
-            });  
-        },
-        startConversation: function() {
-            var self = this;
-            var payload = {
-                'state': 'start',
-                'message': this.message
-            }
-            App.showProcessing()
-            App.remotePost('/api/v1.0/chat/', payload, 
-            function(res){
-                self.response = res;
-                App.hideProcessing()
+                self.next_action = res.next_action;
+                App.hideProcessing();
             }, function(err){
                 App.notifyUser(err, "error");
                 App.hideProcessing()

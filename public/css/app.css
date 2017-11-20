@@ -164,7 +164,7 @@ body [v-cloak] {
   padding: 0 21px;
 }
 .chat-interface {
-  height: 80%;
+  height: 100%;
   position: fixed;
   width: 34%;
   bottom: 0;
@@ -184,7 +184,7 @@ body [v-cloak] {
   text-decoration: none !important;
 }
 .chat-interface .body {
-  height: 70%;
+  height: 75%;
   padding: 21px;
   color: #000100 !important;
 }
@@ -200,7 +200,7 @@ body [v-cloak] {
   color: #000100 !important;
 }
 .chat-interface .action {
-  height: 30%;
+  height: 25%;
 }
 .chat-interface .action .send-text {
   bottom: 0;
