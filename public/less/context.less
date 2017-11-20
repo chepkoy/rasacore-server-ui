@@ -1,6 +1,7 @@
 body {
     height: 100%;
     padding-top: 50px;
+    color: @primary;
     
     .wrapper {
         height: 100%;
@@ -9,5 +10,14 @@ body {
     // Utilites
     [v-cloak] { 
         display:none; 
+    }
+    .modal-content {
+        color: @primary;
+        a {
+            color: @primary;
+            &:hover, &.focus {
+                color: lighten(@primary, 5%);
+            }
+        }
     }
 }

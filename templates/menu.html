@@ -17,8 +17,11 @@
                         <i class="fa fa-flask"></i> Training</a>
                 </li>
                 <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-folder"></i> Intents</a>
+                    <a href="javascript:;" @click="showIntentListModal()">
+                        <i class="fa fa-folder"></i> Intents
+                    </a>
+                    <!-- Show intents -->
+                    <intent-list-modal :show.sync="show_intent_list_modal"></intent-list-modal>
                 </li>
                 <li>
                         <a href="javascript:;">
@@ -32,7 +35,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="divider"></li>
                 <li>
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" action="javascript:;">
                         <div class="form-group">
                             <button class="btn btn-primary btn-sm" @click="doTraining()">
                                 <i class="fa fa-paper-plane"></i> Train Models

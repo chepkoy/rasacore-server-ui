@@ -71,12 +71,23 @@
 body {
   height: 100%;
   padding-top: 50px;
+  color: #000100;
 }
 body .wrapper {
   height: 100%;
 }
 body [v-cloak] {
   display: none;
+}
+body .modal-content {
+  color: #000100;
+}
+body .modal-content a {
+  color: #000100;
+}
+body .modal-content a:hover,
+body .modal-content a.focus {
+  color: #001b00;
 }
 #trainingContainer {
   height: 100%;

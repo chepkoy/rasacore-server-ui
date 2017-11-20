@@ -59,7 +59,6 @@ var addIntentModalTemp = `
         </form>
     </div>
 </modal>
-</span>
 `;
 
 Vue.component('addIntent', {
