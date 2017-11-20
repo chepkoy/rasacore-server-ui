@@ -1,5 +1,5 @@
 """
-WSGI config for dj_rasacore_server project.
+WSGI config for rasacore_server_ui project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dj_rasacore_server.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rasacore_server_ui.settings")
 
 wsgi_application = get_wsgi_application()
 application = DjangoWhiteNoise(wsgi_application)

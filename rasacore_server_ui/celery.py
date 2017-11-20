@@ -8,9 +8,9 @@ from django.conf import settings
 # set the default Django settings module for the 'celery' program.
 BASE_PATH = os.path.dirname(os.path.abspath('manage.py'))
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dj_rasacore_server.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rasacore_server_ui.settings')
 
-app = Celery('dj_rasacore_server')
+app = Celery('rasacore_server_ui')
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.
