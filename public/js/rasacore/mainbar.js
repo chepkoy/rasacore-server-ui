@@ -4,7 +4,8 @@ var TrainingMainBar = new Vue({
     data: function() {
         return {
             showchat: false,
-            show_intent_list_modal: false
+            show_intent_list_modal: false,
+            show_actions_list_modal: false
         }
     },
     methods: {
@@ -25,6 +26,9 @@ var TrainingMainBar = new Vue({
         },
         showIntentListModal: function() {
             this.show_intent_list_modal = true;
+        },
+        showActionsListModal: function() {
+            this.show_actions_list_modal = true;
         }
     }
 });

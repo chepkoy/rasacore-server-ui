@@ -28,8 +28,11 @@
                             <i class="fa fa-flask"></i> Entities</a>
                     </li>
                 <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-magic"></i> Actions</a>
+                    <a href="javascript:;" @click="showActionsListModal()">
+                        <i class="fa fa-magic"></i> Actions
+                    </a>
+                    <!-- Show actions list modal -->
+                    <actions-list-modal :show.sync="show_actions_list_modal"></actions-list-modal>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

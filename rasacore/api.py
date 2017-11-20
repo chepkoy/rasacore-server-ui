@@ -27,6 +27,10 @@ class IntentsViewSet(viewsets.ModelViewSet):
     queryset = Intents.objects.all()
     serializer_class = IntentsSer
 
+class ActionsViewSet(viewsets.ModelViewSet):
+    queryset = Actions.objects.all()
+    serializer_class = ActionsSer
+
 class IntentUserSaysViewSet(viewsets.ModelViewSet):
     queryset = IntentUserSays.objects.all()
     serializer_class = IntentUserSaysSer
