@@ -26,7 +26,7 @@ Vue.component('intentsList', {
         getStoryIntents: function(story_id) {
             var self = this;
             App.showProcessing()
-            App.remoteGet('/api/v1.0/intents/?story='+story_id, {}, 
+            App.remoteGet('/api/v1.0/story-intents/?story='+story_id, {}, 
             function(res){
                 self.$emit('update:intents', res.results);
                 self.pagination.count = res.count;
@@ -86,7 +86,7 @@ Vue.component('addIntent', {
             var self = this;
             self.form['story'] = this.story;
             App.showProcessing()
-            App.remotePost('/api/v1.0/intents/', self.form, 
+            App.remotePost('/api/v1.0/story-intents/', self.form, 
             function(res){
                 self.show_modal = false;
                 // Update intents

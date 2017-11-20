@@ -4,6 +4,16 @@ var intentListModalTemp = `
         <h4 class="modal-title">Intents</h4>
     </div>
     <div slot="modal-body" class="modal-body">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="text" v-model="intent.name" placeholder="Type new intent"  class="form-control">
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-md btn-primary" @click="saveNewIntent()">
+                    <i class="fa fa-check"></i> Save
+                </button>
+            </div>
+        </div>
         <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
@@ -60,7 +70,10 @@ Vue.component('intentListModal', {
     data: function(){
         return {
             show_modal: false,
-            intents: []
+            intents: [],
+            intent: {
+                name: ''
+            }
         }
     },
     methods: {
@@ -107,13 +120,28 @@ Vue.component('intentListModal', {
                 // Remove intent from list
                 var intent_index = self.intents.indexOf(intent);
                 self.intents.splice(intent_index, 1);
-                
+
                 App.hideProcessing();
                 App.notifyUser('Intent removed');
             }, function(err){
                 App.notifyUser(err.responseText, "error");
                 App.hideProcessing();
             });
-        }
+        },
+        saveNewIntent: function() {
+            var self = this;
+            App.showProcessing()
+            App.remotePost('/api/v1.0/intents/', this.intent, 
+            function(res){
+                self.intents.unshift(res);
+                self.$set(self.intent, 'name', '');
+                
+                App.hideProcessing();
+                App.notifyUser('Intent added');
+            }, function(err){
+                App.notifyUser(err.responseText, "error");
+                App.hideProcessing();
+            });
+        },
     }
 });

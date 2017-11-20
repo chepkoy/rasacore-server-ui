@@ -6,21 +6,26 @@ from .tasks import do_training
 
 from .models import Actions, Entities, Intents, \
     IntentUserSays, IntentUserSaysEntities, Stories, \
-    IntentActions, IntentActionsResponses, ResponseButtons, Training
+    IntentActions, IntentActionsResponses, ResponseButtons, \
+    StoryIntents, Training
 
 from .serializers import ActionsSer, EntitiesSer, IntentsSer, \
     IntentUserSaysSer, IntentUserSaysEntitiesSer, StoriesSer, \
     IntentActionsSer, IntentActionsResponsesSer, ResponseButtonsSer, \
-    TrainingSer
+    TrainingSer, StoryIntentsSer, StoryIntentsSer
 
 class StoriesViewSet(viewsets.ModelViewSet):
     queryset = Stories.objects.all()
     serializer_class = StoriesSer
 
+class StoryIntentsViewSet(viewsets.ModelViewSet):
+    queryset = StoryIntents.objects.all()
+    serializer_class = StoryIntentsSer
+    filter_fields = ['story', ]
+
 class IntentsViewSet(viewsets.ModelViewSet):
     queryset = Intents.objects.all()
     serializer_class = IntentsSer
-    filter_fields = ['story', ]
 
 class IntentUserSaysViewSet(viewsets.ModelViewSet):
     queryset = IntentUserSays.objects.all()

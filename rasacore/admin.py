@@ -8,7 +8,7 @@ from solo.admin import SingletonModelAdmin
 from .models import Intents, Actions, Stories, \
     IntentUserSaysEntities, IntentUserSays, Training, \
     IntentActions, IntentActionsResponses, ResponseButtons, \
-    Entities
+    Entities, StoryIntents
 
 # Intent based admins
 class IntentUserSaysEntitiesInline(nested_admin.NestedTabularInline):
@@ -21,7 +21,7 @@ class IntentUserSaysInline(nested_admin.NestedStackedInline):
     inlines = [IntentUserSaysEntitiesInline, ]
     extra = 1
 
-class IntentsAdmin(nested_admin.NestedModelAdmin):
+class StoryIntentsAdmin(nested_admin.NestedModelAdmin):
     inlines = [IntentUserSaysInline, ]
 
 # Stories admin
@@ -39,19 +39,20 @@ class IntentActionsInline(nested_admin.NestedStackedInline):
     inlines = [IntentActionsResponsesInline, ]
     extra = 1
 
-class IntentsInline(nested_admin.NestedStackedInline):
-    model = Intents
+class StoryIntentsInline(nested_admin.NestedStackedInline):
+    model = StoryIntents
     inlines = [IntentActionsInline, ]
 
 class StoriesAdmin(nested_admin.NestedModelAdmin):
-    inlines = [IntentsInline, ]
+    inlines = [StoryIntentsInline, ]
 
 class EntitiesAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name', ]
 
-admin.site.register(Intents, IntentsAdmin)
+admin.site.register(Intents)
 admin.site.register(Actions)
+admin.site.register(StoryIntents, StoryIntentsAdmin)
 admin.site.register(Stories, StoriesAdmin)
 admin.site.register(Entities, EntitiesAdmin)
 admin.site.register(Training, SingletonModelAdmin)

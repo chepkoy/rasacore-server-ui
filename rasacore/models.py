@@ -26,6 +26,16 @@ class Entities(models.Model):
         verbose_name = 'Entity'
         verbose_name_plural = 'Entities'
 
+class Intents(models.Model):
+    name = models.SlugField(max_length=70, unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Intent'
+        verbose_name_plural = 'Intents'
+
 class Stories(models.Model):
     title = models.CharField(max_length=70)
 
@@ -40,8 +50,8 @@ class Stories(models.Model):
         verbose_name = 'Story'
         verbose_name_plural = 'Stories'
 
-class Intents(models.Model):
-    name = models.SlugField(max_length=70, unique=True)
+class StoryIntents(models.Model):
+    intent = models.ForeignKey(Intents, related_name="stories")
     story = models.ForeignKey(Stories, related_name="intents")
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -59,7 +69,7 @@ class IntentUserSays(models.Model):
     """
     NLU user says examples. Examples of conversation texts users have with the bot
     """
-    intent = models.ForeignKey(Intents, related_name='usersays')
+    story_intent = models.ForeignKey(StoryIntents, related_name='usersays')
     text = models.CharField(max_length=240)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
@@ -88,7 +98,7 @@ class IntentUserSaysEntities(models.Model):
         verbose_name_plural = 'User Says Entities'
 
 class IntentActions(OrderedModel):
-    intent = models.ForeignKey(Intents, related_name='actions')
+    story_intent = models.ForeignKey(StoryIntents, related_name='actions')
     action = models.ForeignKey(Actions, related_name='intent_actions')
 
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

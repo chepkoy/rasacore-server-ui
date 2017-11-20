@@ -2,7 +2,8 @@ from rest_framework import serializers
 
 from .models import Actions, Entities, Intents, \
     IntentUserSays, IntentUserSaysEntities, Stories, \
-    IntentActions, IntentActionsResponses, ResponseButtons, Training
+    IntentActions, IntentActionsResponses, ResponseButtons, \
+    Training, StoryIntents
 
 
 class ActionsSer(serializers.ModelSerializer):
@@ -20,6 +21,11 @@ class IntentsSer(serializers.ModelSerializer):
         model = Intents
         fields = "__all__"
 
+class StoryIntentsSer(serializers.ModelSerializer):
+    class Meta:
+        model = StoryIntents
+        fields = "__all__"
+        
 class IntentUserSaysSer(serializers.ModelSerializer):
     class Meta:
         model = IntentUserSays

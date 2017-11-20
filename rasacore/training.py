@@ -41,7 +41,7 @@ class Train:
                  for entity in user_say.entities.all()]
             common_examples.append({
                 'text': user_say.text,
-                'intent': user_say.intent.name,
+                'intent': user_say.story_intent.intent.name,
                 'entities': entities
             })
 
@@ -138,9 +138,9 @@ class Train:
         for story in stories:
             story_string += '## %s\n' % story.title
             # Add intent and actions
-            for intent in story.intents.all():
-                story_string += '* _%s\n' % intent.name
-                for action_item in intent.actions.all():
+            for story_intent in story.intents.all():
+                story_string += '* _%s\n' % story_intent.intent.name
+                for action_item in story_intent.actions.all():
                     story_string += '\t- %s\n' % action_item.action.name
             
             # Break with new line to separate with new story
