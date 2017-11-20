@@ -1,71 +1,71 @@
 .primary-bg {
   background: #000100 !important;
-  color: #F8F8F8 !important;
+  color: #F8F8F8;
 }
 .primary-bg a {
-  color: #F8F8F8 !important;
+  color: #F8F8F8;
   text-decoration: none !important;
 }
 .primary-bg a:hover,
 .primary-bg a:active,
 .primary-bg a:focus {
-  color: #ffffff !important;
+  color: #ffffff;
   text-decoration: none !important;
 }
 .secondary-bg {
   background: #A1A6B4 !important;
-  color: #000100 !important;
+  color: #000100;
 }
 .secondary-bg a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 .secondary-bg a:hover,
 .secondary-bg a:active,
 .secondary-bg a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 .action-bg {
   background: #B4D2E7 !important;
-  color: #000100 !important;
+  color: #000100;
 }
 .action-bg a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 .action-bg a:hover,
 .action-bg a:active,
 .action-bg a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 .success-bg {
   background: #94C5CC !important;
-  color: #000100 !important;
+  color: #000100;
 }
 .success-bg a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 .success-bg a:hover,
 .success-bg a:active,
 .success-bg a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 .neutral-bg {
   background: #F8F8F8 !important;
-  color: #000100 !important;
+  color: #000100;
 }
 .neutral-bg a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 .neutral-bg a:hover,
 .neutral-bg a:active,
 .neutral-bg a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 html,
@@ -102,11 +102,11 @@ body [v-cloak] {
 #trainingContainer .content .component-list li:hover,
 #trainingContainer .content .component-list li:focus {
   background: #F8F8F8 !important;
-  color: #000100 !important;
+  color: #000100;
 }
 #trainingContainer .content .component-list li:hover a,
 #trainingContainer .content .component-list li:focus a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 #trainingContainer .content .component-list li:hover a:hover,
@@ -115,21 +115,21 @@ body [v-cloak] {
 #trainingContainer .content .component-list li:focus a:active,
 #trainingContainer .content .component-list li:hover a:focus,
 #trainingContainer .content .component-list li:focus a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 #trainingContainer .content .component-list li.active {
   background: #F8F8F8 !important;
-  color: #000100 !important;
+  color: #000100;
 }
 #trainingContainer .content .component-list li.active a {
-  color: #000100 !important;
+  color: #000100;
   text-decoration: none !important;
 }
 #trainingContainer .content .component-list li.active a:hover,
 #trainingContainer .content .component-list li.active a:active,
 #trainingContainer .content .component-list li.active a:focus {
-  color: #001000 !important;
+  color: #001000;
   text-decoration: none !important;
 }
 #trainingContainer .content .tabular-list,
@@ -145,16 +145,16 @@ body [v-cloak] {
   position: fixed;
   bottom: 0;
   background: #000100 !important;
-  color: #F8F8F8 !important;
+  color: #F8F8F8;
 }
 #trainingMainBar a {
-  color: #F8F8F8 !important;
+  color: #F8F8F8;
   text-decoration: none !important;
 }
 #trainingMainBar a:hover,
 #trainingMainBar a:active,
 #trainingMainBar a:focus {
-  color: #ffffff !important;
+  color: #ffffff;
   text-decoration: none !important;
 }
 #trainingMainBar .content {
@@ -162,4 +162,53 @@ body [v-cloak] {
 }
 #trainingMainBar .content .list-inline li {
   padding: 0 21px;
+}
+.chat-interface {
+  height: 80%;
+  position: fixed;
+  width: 34%;
+  bottom: 0;
+  right: 0;
+  background: #F8F8F8 !important;
+  color: #000100;
+  border: 1px solid #bdc1cb;
+}
+.chat-interface a {
+  color: #000100;
+  text-decoration: none !important;
+}
+.chat-interface a:hover,
+.chat-interface a:active,
+.chat-interface a:focus {
+  color: #001000;
+  text-decoration: none !important;
+}
+.chat-interface .body {
+  height: 70%;
+  padding: 21px;
+  color: #000100 !important;
+}
+.chat-interface .body .close-chat {
+  padding: 0 0 11px 0;
+  color: #000100 !important;
+}
+.chat-interface .body .close-chat a {
+  color: #000100 !important;
+}
+.chat-interface .body .close-chat a:hover,
+.chat-interface .body .close-chat a:focus {
+  color: #000100 !important;
+}
+.chat-interface .action {
+  height: 30%;
+}
+.chat-interface .action .send-text {
+  bottom: 0;
+  position: absolute;
+}
+.chat-interface .action .send-action {
+  padding: 21px;
+}
+.chat-interface .divider {
+  border-top: 1px solid #bdc1cb;
 }

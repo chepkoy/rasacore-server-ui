@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^api/v1.0/', include(router.urls, namespace='v1.0')),
     url(r'^api/v1.0/train/$', rasacore_api.trainView),
     
-    # url(r'^api/v1/chat/$', rasacore_api.chatView),
+    url(r'^api/v1.0/chat/$', rasacore_api.chatView),
 
     # Page Views URLs
     url(r'^', include('rasacore.urls')),

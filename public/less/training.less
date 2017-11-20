@@ -53,3 +53,43 @@
         }
     }
 }
+
+// Chat interface
+.chat-interface {
+    height: 80%;
+    position: fixed;
+    width: 34%;
+    bottom: 0;
+    right: 0;
+    .neutral-bg;
+    border: 1px solid lighten(@secondary, 10%);
+    .body {
+        // background: #ffffff;
+        height: 70%;
+        padding: 21px;
+        color: @primary !important;
+        .close-chat {
+            padding: 0 0 11px 0;
+            color: @primary !important;
+            a {
+                color: @primary !important;
+                &:hover, &:focus {
+                    color: @primary !important;
+                }
+            }
+        }
+    }
+    .action {
+        height: 30%;
+        .send-text {
+            bottom: 0;
+            position: absolute;
+        }
+        .send-action {
+            padding: 21px;
+        }
+    }
+    .divider {
+        border-top: 1px solid lighten(@secondary, 10%);
+    }
+}

@@ -2,7 +2,9 @@
 var TrainingMainBar = new Vue({
     el: "#trainingMainBar",
     data: function() {
-        return {}
+        return {
+            showchat: false
+        }
     },
     methods: {
         doTraining: function() {
@@ -16,6 +18,9 @@ var TrainingMainBar = new Vue({
                 App.notifyUser(err.responseText, "error");
                 App.hideProcessing()
             });
+        },
+        showChat: function() {
+            this.showchat = true;
         }
     }
 });
