@@ -47,49 +47,6 @@
         </div>
     </div>
 </div>
-
-<!-- Menu bar for global actions -->
-<div id="trainingMainBar">
-    <div class="container content">
-        <div class="row">
-            <div class="col-md-3">
-                PesaBot - Rasacore Bot Training Engine
-            </div>
-            <div class="col-md-6">
-                <ul class="list-inline text-center">
-                    <li>
-                        <button class="btn btn-primary btn-sm" @click="doTraining()">
-                            <i class="fa fa-paper-plane"></i> Train Models</button>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-folder"></i> Intents</a>
-                    </li>
-                    <li>
-                            <a href="javascript:;">
-                                <i class="fa fa-flask"></i> Entities</a>
-                        </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-magic"></i> Actions</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 text-right">
-                <ul class="list-inline">
-                    <li>
-                        <a href="javascript:;" @click="showChat()">
-                            <i class="fa fa-comment-o"></i> Test Chat
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat components -->
-    <chat :show.sync="showchat" v-if="showchat"></chat>
-</div>
 {% endverbatim %}
 {% endblock %}
 

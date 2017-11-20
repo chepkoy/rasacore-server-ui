@@ -1,5 +1,5 @@
 #trainingContainer {
-    height: 90%;
+    height: 100%;
     width: 100%;
     position: absolute;
     .full-height {
@@ -36,60 +36,4 @@
         }
     }
     
-}
-
-#trainingMainBar {
-    height: 10%;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    .primary-bg;
-    .content {
-        padding: 21px 0;
-        .list-inline {
-            li {
-                padding: 0 21px;
-            }
-        }
-    }
-}
-
-// Chat interface
-.chat-interface {
-    height: 100%;
-    position: fixed;
-    width: 34%;
-    bottom: 0;
-    right: 0;
-    .neutral-bg;
-    border: 1px solid lighten(@secondary, 10%);
-    .body {
-        // background: #ffffff;
-        height: 75%;
-        padding: 21px;
-        color: @primary !important;
-        .close-chat {
-            padding: 0 0 11px 0;
-            color: @primary !important;
-            a {
-                color: @primary !important;
-                &:hover, &:focus {
-                    color: @primary !important;
-                }
-            }
-        }
-    }
-    .action {
-        height: 25%;
-        .send-text {
-            bottom: 0;
-            position: absolute;
-        }
-        .send-action {
-            padding: 21px;
-        }
-    }
-    .divider {
-        border-top: 1px solid lighten(@secondary, 10%);
-    }
 }

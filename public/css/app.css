@@ -68,20 +68,18 @@
   color: #001000;
   text-decoration: none !important;
 }
-html,
 body {
   height: 100%;
+  padding-top: 50px;
 }
-html .wrapper,
 body .wrapper {
   height: 100%;
 }
-html [v-cloak],
 body [v-cloak] {
   display: none;
 }
 #trainingContainer {
-  height: 90%;
+  height: 100%;
   width: 100%;
   position: absolute;
 }
@@ -140,12 +138,10 @@ body [v-cloak] {
   float: right;
 }
 #trainingMainBar {
-  height: 10%;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
   background: #000100 !important;
   color: #F8F8F8;
+  border: none !important;
+  border-radius: none !important;
 }
 #trainingMainBar a {
   color: #F8F8F8;
@@ -198,6 +194,10 @@ body [v-cloak] {
 .chat-interface .body .close-chat a:hover,
 .chat-interface .body .close-chat a:focus {
   color: #000100 !important;
+}
+.chat-interface .body .response {
+  height: 90%;
+  overflow: scroll;
 }
 .chat-interface .action {
   height: 25%;

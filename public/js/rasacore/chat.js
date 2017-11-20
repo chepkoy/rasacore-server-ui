@@ -7,7 +7,7 @@ var chatTemp = `
                 </a>
             </div>
             <div class="response">
-                {{ response }}
+                <pre>{{ response }}</pre>
             </div>
         </div>
         <div class="divider"></div>
@@ -24,12 +24,14 @@ var chatTemp = `
                     </div>
                 </div>
             </div>
-            <div class="input-group send-text">
-                <input type="text" class="form-control" v-bind:enabled="next_action == 'action_listen'" v-model="message" placeholder="User response"> 
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" v-bind:enabled="next_action == 'action_listen'" type="button" @click="sendMessage()">Send</button>
-                </span>
-            </div>
+            <form method="post" action="javascript:;" @submit="sendMessage()">
+                <div class="input-group send-text">
+                    <input type="text" class="form-control" :disabled="next_action != 'action_listen'" v-model="message" placeholder="User response"> 
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" :disabled="next_action != 'action_listen'" type="button" @click="sendMessage()">Send</button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 `;
@@ -75,6 +77,7 @@ Vue.component('chat', {
             function(res){
                 self.response = res;
                 self.next_action = res.next_action;
+                self.message = '';
                 App.hideProcessing();
             }, function(err){
                 App.notifyUser(err, "error");
